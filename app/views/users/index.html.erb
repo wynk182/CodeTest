@@ -1,0 +1,21 @@
+
+<%= form_tag users_path, method: 'post', id: 'admin_search', remote: true do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<ul id="user_list">
+</ul>
+
+<script>
+  $('#admin_search').on('submit', function (event) {
+     event.preventDefault();
+     var $form = $('#admin_search');
+     $.post($form.attr('action'),$form.serialize(), function (data) {
+         $('#user_list').html(data.map(function (t) {
+                 return "<li>"+t.name +"</li>";
+             }
+         ));
+     });
+  });
+</script>

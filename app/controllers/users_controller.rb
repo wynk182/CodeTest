@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     # respond_to do |format|
     #   format.js
-    @search_results = @users.map {|u| {id: u.id, name: u.name, email: u.email}}.to_json
+    render json: @users.map {|u| {id: u.id, name: u.name, email: u.email}}
     #   format.html
     # end
   end
