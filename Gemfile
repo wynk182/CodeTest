@@ -42,6 +42,8 @@ group :development, :test do
   gem 'fabrication'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'jquery-rails'
+  gem 'devise'
 end
 
 group :development do
