@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
 
   # get /users
   def index
@@ -30,11 +31,7 @@ class UsersController < ApplicationController
     p max
     @users = User.where(:age => min..max)
 
-    # respond_to do |format|
-    #   format.js
-    @search_results = @users.map {|u| {id: u.id, name: u.name, email: u.email}}.to_json
-    #   format.html
-    # end
+    render json: @users.map {|u| {id: u.id, name: u.name, email: u.email, age: u.age}}
   end
 
 end
