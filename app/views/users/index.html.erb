@@ -13,7 +13,7 @@
      var $form = $('#admin_search');
      $.post($form.attr('action'),$form.serialize(), function (data) {
          $('#user_list').html(data.map(function (t) {
-                 return "<li>"+t.name +"</li>";
+                 return '<li>' + t.name + ', ' + t.age +'</li>';
              }
          ));
      });
